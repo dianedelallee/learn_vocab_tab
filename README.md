@@ -18,41 +18,68 @@ Pensée pour **Arc**, où ⌘T ouvre la barre de commande au lieu d'une page « 
 
 Raccourcis sur la page : `espace` ou `→` pour le mot suivant, `S` pour écouter.
 
-## Installation
+## Installation locale
 
-### Depuis le Chrome Web Store
+L'extension n'est pas publiée sur le Chrome Web Store : elle se charge directement depuis le dossier du code.
+Ça marche dans Arc, Chrome, Brave et Edge. Rien à compiler, rien à installer en plus : les illustrations sont déjà dans le repo.
 
-Bientôt disponible. Le Chrome Web Store fonctionne aussi pour Arc, Brave et Edge.
+### 1. Récupérer le code
 
-### Manuellement, depuis ce repo
+Le repo est privé : il faut être connecté à GitHub avec un compte qui y a accès.
 
-1. Télécharger le code : bouton **Code → Download ZIP** sur GitHub, puis dézipper. Ou bien :
-   ```bash
-   git clone git@github.com:dianedelallee/learn_vocab_tab.git
-   ```
-2. Ouvrir `arc://extensions` (ou `chrome://extensions`).
-3. Activer le **mode développeur** (interrupteur en haut à droite).
-4. Cliquer sur **Charger l'extension non empaquetée** et choisir le dossier `learn_vocab_tab`.
+```bash
+git clone git@github.com:dianedelallee/learn_vocab_tab.git
+```
 
-La page de vocabulaire s'ouvre automatiquement. Les illustrations sont déjà dans le repo, il n'y a rien d'autre à installer.
+Ou, sur GitHub : **Code → Download ZIP**, puis dézipper.
 
-## Utilisation dans Arc
+> Range le dossier à un endroit où il restera (pas dans Téléchargements) : le navigateur charge l'extension
+> depuis ce dossier. S'il est déplacé ou supprimé, l'extension cesse de fonctionner.
 
-Arc ignore le remplacement du nouvel onglet. À la place, il y a trois façons d'ouvrir la page :
+### 2. Charger l'extension
 
-- **Favori épinglé** : la page s'ouvre une fois à l'installation. Glisse-la dans tes Favoris et clique dessus quand tu veux.
-- **Raccourci clavier** : `⌥⇧V` ouvre la page dans un nouvel onglet (modifiable dans `arc://extensions/shortcuts`).
-- **Popup** : l'icône de l'extension affiche une version compacte du mot.
+1. Ouvrir `arc://extensions` (ou `chrome://extensions` dans Chrome).
+2. Activer le **mode développeur** (interrupteur en haut à droite). Il doit rester activé : s'il est désactivé, l'extension l'est aussi.
+3. Cliquer sur **Charger l'extension non empaquetée** et choisir le dossier `learn_vocab_tab` (celui qui contient `manifest.json`).
 
-Dans Chrome, la page remplace aussi le nouvel onglet.
+La page de vocabulaire s'ouvre automatiquement dans un nouvel onglet.
+
+### 3. L'avoir sous la main dans Arc
+
+Arc n'a pas de page « nouvel onglet » (⌘T ouvre la barre de commande). Il y a trois façons d'ouvrir les mots :
+
+- **Favori** : glisser l'onglet ouvert à l'installation dans les Favoris d'Arc. Un clic suffit ensuite pour voir un nouveau mot.
+- **Raccourci clavier** : `⌥⇧V` ouvre la page dans un nouvel onglet. Pour le changer : `arc://extensions/shortcuts`.
+- **Popup** : épingler l'extension depuis le menu des extensions d'Arc (icône de pièce de puzzle), puis cliquer sur son icône pour une version compacte.
+
+Dans Chrome, Brave ou Edge, la page remplace aussi la page « nouvel onglet ».
+
+### Mettre à jour
+
+```bash
+cd learn_vocab_tab
+git pull
+```
+
+Puis, dans `arc://extensions`, cliquer sur la flèche de rechargement de la carte Learn Vocab Tab.
+Les réglages (langues choisies) sont conservés.
+
+### Désinstaller
+
+Dans `arc://extensions`, cliquer sur **Supprimer** sur la carte de l'extension. Le dossier peut ensuite être supprimé.
+
+### En cas de souci
+
+- **Une illustration manque** : lancer `node scripts/fetch-icons.mjs` (Node 18 ou plus), puis recharger l'extension.
+- **Le raccourci ne fait rien** : il entre peut-être en conflit avec un raccourci d'Arc ou de macOS. En choisir un autre dans `arc://extensions/shortcuts`.
+- **Erreur au chargement** : vérifier que le dossier choisi est bien celui qui contient `manifest.json`, pas un dossier parent.
+- **Pas de son** : la prononciation utilise les voix de macOS. Pour le japonais, par exemple, il faut une voix japonaise
+  (Réglages Système → Accessibilité → Contenu énoncé → Voix du système → Gérer les voix).
 
 ## Développement
 
 Il n'y a pas d'étape de build : c'est du JavaScript sans dépendance. Après une modification, cliquer sur la
 flèche de rechargement de l'extension dans `arc://extensions`.
-
-Pour publier une nouvelle version : augmenter `version` dans `manifest.json`, lancer `scripts/package.sh`,
-puis envoyer le zip de `dist/` dans le [tableau de bord du Chrome Web Store](https://chrome.google.com/webstore/devconsole).
 
 ## Structure
 
@@ -68,8 +95,6 @@ js/background.js         Raccourci clavier + ouverture à l'installation
 css/tab.css              Styles
 img/words/               Illustrations SVG
 scripts/fetch-icons.mjs  Télécharge les illustrations manquantes
-scripts/package.sh       Crée le zip pour le Chrome Web Store
-store/                   Visuels et textes de la fiche Chrome Web Store (listing.md)
 ```
 
 Illustrations : [Fluent Emoji](https://github.com/microsoft/fluentui-emoji) © Microsoft, licence MIT (voir `img/words/LICENSE`).
