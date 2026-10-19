@@ -69,6 +69,7 @@ css/tab.css              Styles
 img/words/               Illustrations SVG
 scripts/fetch-icons.mjs  Télécharge les illustrations manquantes
 scripts/package.sh       Crée le zip pour le Chrome Web Store
+store/                   Visuels et textes de la fiche Chrome Web Store (listing.md)
 ```
 
 Illustrations : [Fluent Emoji](https://github.com/microsoft/fluentui-emoji) © Microsoft, licence MIT (voir `img/words/LICENSE`).
