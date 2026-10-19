@@ -18,9 +18,13 @@ Built for **Arc**, where ⌘T opens the command bar instead of a new tab page.
 
 Shortcuts on the page: `space` or `→` for the next word, `S` to listen.
 
+## Install from the Chrome Web Store
+
+Coming soon. The Chrome Web Store also works for Arc, Brave and Edge.
+
 ## Local installation
 
-The extension isn't published on the Chrome Web Store: it loads straight from the code folder.
+You can also load the extension straight from the code folder, e.g. to try out changes.
 It works in Arc, Chrome, Brave and Edge. There's nothing to build and nothing else to install, since the illustrations are already in the repo.
 
 ### 1. Get the code
@@ -81,6 +85,15 @@ In `arc://extensions`, click **Remove** on the extension's card. You can then de
 There's no build step: it's plain JavaScript with no dependencies. After a change, click the extension's
 reload arrow in `arc://extensions`.
 
+## Publishing a new version
+
+1. Bump `version` in `manifest.json` (the Store rejects a version it has already seen).
+2. Run `scripts/package.sh`: it writes `dist/learn-vocab-tab-<version>.zip` with only the files the extension needs.
+3. Upload the zip in the [Chrome Web Store developer dashboard](https://chrome.google.com/webstore/devconsole)
+   (the item → **Package** → **Upload new package**), then **Submit for review**.
+
+The listing texts and images live in `store/` (`store/listing.md` has everything ready to paste).
+
 ## Structure
 
 ```
@@ -95,6 +108,8 @@ js/background.js         Keyboard shortcut + opening the page on install
 css/tab.css              Styles
 img/words/               SVG illustrations
 scripts/fetch-icons.mjs  Downloads missing illustrations
+scripts/package.sh       Builds the zip for the Chrome Web Store
+store/                   Chrome Web Store listing: screenshots, promo images, texts (listing.md)
 ```
 
 Illustrations: [Fluent Emoji](https://github.com/microsoft/fluentui-emoji) © Microsoft, MIT licence (see `img/words/LICENSE`).
