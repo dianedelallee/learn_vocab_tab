@@ -1,107 +1,107 @@
 # Learn Vocab Tab
 
-Extension Chromium qui affiche un mot de vocabulaire illustré, dans l'esprit de
-[LinguaTab](https://github.com/pavelsalauyou/linguatab-chome-extension) pour le contenu et de
-[MaiTab](https://github.com/mayoi7/MaiTab) pour le style épuré.
+A Chromium extension that shows an illustrated vocabulary word, inspired by
+[LinguaTab](https://github.com/pavelsalauyou/linguatab-chome-extension) for the content and
+[MaiTab](https://github.com/mayoi7/MaiTab) for the clean look.
 
-Pensée pour **Arc**, où ⌘T ouvre la barre de commande au lieu d'une page « nouvel onglet ».
+Built for **Arc**, where ⌘T opens the command bar instead of a new tab page.
 
-## Fonctionnement
+## Features
 
-- 161 mots concrets en français, anglais, espagnol, allemand, italien, portugais (Brésil) et japonais.
-- Paire de langues réglable (« Je parle » / « J'apprends »).
-- Prononciation sous le mot : API (alphabet phonétique international) pour toutes les langues, romaji pour le japonais.
-  Les kanji ont aussi leur lecture en furigana.
-- Une illustration par mot ([Fluent Emoji](https://github.com/microsoft/fluentui-emoji), licence MIT), incluse dans l'extension : tout marche hors ligne.
-- Écoute via la synthèse vocale du système.
-- Les 40 derniers mots affichés ne reviennent pas tout de suite.
+- 161 everyday words in French, English, Spanish, German, Italian, Brazilian Portuguese and Japanese.
+- Configurable language pair (« Je parle » / « J'apprends », i.e. "I speak" / "I'm learning").
+- Pronunciation under each word: IPA (International Phonetic Alphabet) for every language, romaji for Japanese.
+  Kanji also get their reading as furigana.
+- One illustration per word ([Fluent Emoji](https://github.com/microsoft/fluentui-emoji), MIT licence), bundled with the extension, so everything works offline.
+- Listen to the word with your system's text-to-speech.
+- The last 40 words shown don't come back right away.
 
-Raccourcis sur la page : `espace` ou `→` pour le mot suivant, `S` pour écouter.
+Shortcuts on the page: `space` or `→` for the next word, `S` to listen.
 
-## Installation locale
+## Local installation
 
-L'extension n'est pas publiée sur le Chrome Web Store : elle se charge directement depuis le dossier du code.
-Ça marche dans Arc, Chrome, Brave et Edge. Rien à compiler, rien à installer en plus : les illustrations sont déjà dans le repo.
+The extension isn't published on the Chrome Web Store: it loads straight from the code folder.
+It works in Arc, Chrome, Brave and Edge. There's nothing to build and nothing else to install, since the illustrations are already in the repo.
 
-### 1. Récupérer le code
+### 1. Get the code
 
-Le repo est privé : il faut être connecté à GitHub avec un compte qui y a accès.
+The repo is private: you need to be signed in to GitHub with an account that has access to it.
 
 ```bash
 git clone git@github.com:dianedelallee/learn_vocab_tab.git
 ```
 
-Ou, sur GitHub : **Code → Download ZIP**, puis dézipper.
+Or, on GitHub: **Code → Download ZIP**, then unzip it.
 
-> Range le dossier à un endroit où il restera (pas dans Téléchargements) : le navigateur charge l'extension
-> depuis ce dossier. S'il est déplacé ou supprimé, l'extension cesse de fonctionner.
+> Keep the folder somewhere permanent (not in Downloads): the browser loads the extension from it.
+> If the folder is moved or deleted, the extension stops working.
 
-### 2. Charger l'extension
+### 2. Load the extension
 
-1. Ouvrir `arc://extensions` (ou `chrome://extensions` dans Chrome).
-2. Activer le **mode développeur** (interrupteur en haut à droite). Il doit rester activé : s'il est désactivé, l'extension l'est aussi.
-3. Cliquer sur **Charger l'extension non empaquetée** et choisir le dossier `learn_vocab_tab` (celui qui contient `manifest.json`).
+1. Open `arc://extensions` (or `chrome://extensions` in Chrome).
+2. Turn on **Developer mode** (toggle in the top-right corner). Leave it on: turning it off disables the extension too.
+3. Click **Load unpacked** and pick the `learn_vocab_tab` folder (the one that contains `manifest.json`).
 
-La page de vocabulaire s'ouvre automatiquement dans un nouvel onglet.
+The vocabulary page opens automatically in a new tab.
 
-### 3. L'avoir sous la main dans Arc
+### 3. Keep it at hand in Arc
 
-Arc n'a pas de page « nouvel onglet » (⌘T ouvre la barre de commande). Il y a trois façons d'ouvrir les mots :
+Arc has no new tab page (⌘T opens the command bar). There are three ways to get to the words:
 
-- **Favori** : glisser l'onglet ouvert à l'installation dans les Favoris d'Arc. Un clic suffit ensuite pour voir un nouveau mot.
-- **Raccourci clavier** : `⌥⇧V` ouvre la page dans un nouvel onglet. Pour le changer : `arc://extensions/shortcuts`.
-- **Popup** : épingler l'extension depuis le menu des extensions d'Arc (icône de pièce de puzzle), puis cliquer sur son icône pour une version compacte.
+- **Favorite**: drag the tab that opened on install into your Arc Favorites. One click then shows a new word.
+- **Keyboard shortcut**: `⌥⇧V` opens the page in a new tab. To change it, go to `arc://extensions/shortcuts`.
+- **Popup**: pin the extension from Arc's extensions menu (puzzle-piece icon), then click its icon for a compact version.
 
-Dans Chrome, Brave ou Edge, la page remplace aussi la page « nouvel onglet ».
+In Chrome, Brave or Edge, the page also replaces the new tab page.
 
-### Mettre à jour
+### Updating
 
 ```bash
 cd learn_vocab_tab
 git pull
 ```
 
-Puis, dans `arc://extensions`, cliquer sur la flèche de rechargement de la carte Learn Vocab Tab.
-Les réglages (langues choisies) sont conservés.
+Then, in `arc://extensions`, click the reload arrow on the Learn Vocab Tab card.
+Your settings (chosen languages) are kept.
 
-### Désinstaller
+### Uninstalling
 
-Dans `arc://extensions`, cliquer sur **Supprimer** sur la carte de l'extension. Le dossier peut ensuite être supprimé.
+In `arc://extensions`, click **Remove** on the extension's card. You can then delete the folder.
 
-### En cas de souci
+### Troubleshooting
 
-- **Une illustration manque** : lancer `node scripts/fetch-icons.mjs` (Node 18 ou plus), puis recharger l'extension.
-- **Le raccourci ne fait rien** : il entre peut-être en conflit avec un raccourci d'Arc ou de macOS. En choisir un autre dans `arc://extensions/shortcuts`.
-- **Erreur au chargement** : vérifier que le dossier choisi est bien celui qui contient `manifest.json`, pas un dossier parent.
-- **Pas de son** : la prononciation utilise les voix de macOS. Pour le japonais, par exemple, il faut une voix japonaise
-  (Réglages Système → Accessibilité → Contenu énoncé → Voix du système → Gérer les voix).
+- **An illustration is missing**: run `node scripts/fetch-icons.mjs` (Node 18 or later), then reload the extension.
+- **The shortcut does nothing**: it may clash with an Arc or macOS shortcut. Pick another one in `arc://extensions/shortcuts`.
+- **Error when loading**: make sure you picked the folder that contains `manifest.json`, not a parent folder.
+- **No sound**: pronunciation uses the macOS voices. For Japanese, for example, you need a Japanese voice installed
+  (System Settings → Accessibility → Spoken Content → System Voice → Manage Voices).
 
-## Développement
+## Development
 
-Il n'y a pas d'étape de build : c'est du JavaScript sans dépendance. Après une modification, cliquer sur la
-flèche de rechargement de l'extension dans `arc://extensions`.
+There's no build step: it's plain JavaScript with no dependencies. After a change, click the extension's
+reload arrow in `arc://extensions`.
 
 ## Structure
 
 ```
 manifest.json            Manifest V3
-html/tab.html            Page plein écran
-html/popup.html          Version compacte (icône de l'extension)
-js/tab.js                Logique d'affichage, partagée par les deux pages
-js/words.js              Langues et liste de mots
-js/phonetics.js          Prononciation de chaque mot, par langue
-js/settings.js           Réglages (chrome.storage.sync)
-js/background.js         Raccourci clavier + ouverture à l'installation
+html/tab.html            Full-page view
+html/popup.html          Compact view (extension icon)
+js/tab.js                Display logic, shared by both pages
+js/words.js              Languages and word list
+js/phonetics.js          Pronunciation of each word, per language
+js/settings.js           Settings (chrome.storage.sync)
+js/background.js         Keyboard shortcut + opening the page on install
 css/tab.css              Styles
-img/words/               Illustrations SVG
-scripts/fetch-icons.mjs  Télécharge les illustrations manquantes
+img/words/               SVG illustrations
+scripts/fetch-icons.mjs  Downloads missing illustrations
 ```
 
-Illustrations : [Fluent Emoji](https://github.com/microsoft/fluentui-emoji) © Microsoft, licence MIT (voir `img/words/LICENSE`).
+Illustrations: [Fluent Emoji](https://github.com/microsoft/fluentui-emoji) © Microsoft, MIT licence (see `img/words/LICENSE`).
 
-## Ajouter un mot
+## Adding a word
 
-1. Trouver le nom de l'illustration sur [Iconify — Fluent Emoji Flat](https://icon-sets.iconify.design/fluent-emoji-flat/).
-2. Ajouter l'entrée dans `WORDS` (`js/words.js`), avec `kana` si le japonais contient des kanji.
-3. Ajouter sa prononciation dans chaque langue de `js/phonetics.js`.
-4. Lancer `node scripts/fetch-icons.mjs`.
+1. Find the illustration's name on [Iconify — Fluent Emoji Flat](https://icon-sets.iconify.design/fluent-emoji-flat/).
+2. Add the entry to `WORDS` (`js/words.js`), with `kana` if the Japanese contains kanji.
+3. Add its pronunciation for each language in `js/phonetics.js`.
+4. Run `node scripts/fetch-icons.mjs`.
