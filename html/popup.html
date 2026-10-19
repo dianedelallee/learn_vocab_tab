@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Vocab</title>
+  <link rel="stylesheet" href="../css/tab.css">
+</head>
+<body class="page-popup">
+  <main class="card">
+    <p class="lang-pair" id="langPair"></p>
+    <img class="illustration" id="illustration" alt="">
+    <h1 class="word" id="target"></h1>
+    <p class="phonetic" id="phonetic"></p>
+    <p class="translation" id="source"></p>
+    <div class="actions">
+      <button class="icon-btn" id="speak" title="Écouter (S)" aria-label="Écouter">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+      </button>
+      <button class="icon-btn" id="next" title="Mot suivant (espace ou →)" aria-label="Mot suivant">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+      </button>
+      <button class="icon-btn" id="openFull" title="Ouvrir en grand" aria-label="Ouvrir en grand">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4l-8 8"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+      </button>
+    </div>
+  </main>
+
+  <script type="module" src="../js/tab.js"></script>
+</body>
+</html>

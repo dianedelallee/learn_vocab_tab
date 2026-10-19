@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vocab</title>
+  <link rel="icon" href="../icons/icon16.png">
+  <link rel="stylesheet" href="../css/tab.css">
+</head>
+<body class="page-tab">
+  <main class="card">
+    <p class="lang-pair" id="langPair"></p>
+    <img class="illustration" id="illustration" alt="">
+    <h1 class="word" id="target"></h1>
+    <p class="phonetic" id="phonetic"></p>
+    <p class="translation" id="source"></p>
+    <div class="actions">
+      <button class="icon-btn" id="speak" title="Écouter (S)" aria-label="Écouter">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+      </button>
+      <button class="icon-btn" id="next" title="Mot suivant (espace ou →)" aria-label="Mot suivant">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+      </button>
+    </div>
+  </main>
+
+  <button class="icon-btn settings-toggle" id="settingsToggle" title="Réglages" aria-label="Réglages">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>
+  </button>
+
+  <form class="settings" id="settings" hidden>
+    <label>Je parle <select id="sourceLang"></select></label>
+    <label>J'apprends <select id="targetLang"></select></label>
+    <label class="check"><input id="showImages" type="checkbox"> Illustrations</label>
+  </form>
+
+  <script type="module" src="../js/tab.js"></script>
+</body>
+</html>
