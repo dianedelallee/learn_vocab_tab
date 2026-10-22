@@ -20,7 +20,8 @@ Shortcuts on the page: `space` or `→` for the next word, `S` to listen.
 
 ## Install from the Chrome Web Store
 
-Coming soon. The Chrome Web Store also works for Arc, Brave and Edge.
+**[Learn Vocab Tab on the Chrome Web Store](https://chromewebstore.google.com/detail/learn-vocab-tab/diibdoeegnnbamiddnkmpndoobihokoa)**: click **Add to Chrome**.
+It works the same way in Arc, Brave and Edge. Then see [Keep it at hand in Arc](#3-keep-it-at-hand-in-arc) below.
 
 ## Local installation
 
